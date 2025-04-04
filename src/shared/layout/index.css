@@ -1,0 +1,11 @@
+.footerLayout {
+    width: 100%;
+}
+
+main {
+    height: 100%;
+    display: grid;
+    min-height: calc(100vh - (135px));
+    padding: 16px;
+    overflow: auto;
+}

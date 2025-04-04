@@ -1,23 +1,94 @@
-import reactLogo from '../../assets/react.svg';
-import viteLogo from '/vite.svg?url';
 import './index.css';
+import { useState } from 'react';
 
 function Home() {
-    return (
-        <div className='home-block'>
-            <h1 className='home-title'>Stel Stelox</h1>
-            <div className='info-block'>
-                <h1 className='info-title'>Info me</h1>
-                <p>Hello everyone! My name is Andrey, and my nickname on the Internet is StelStelox. I am a beginner developer studying Web development.</p>
-            </div>
 
-            <div className='framework-block'>
-                <h1 className='framework-title'>This website is made through Vite builder using React framework</h1>
-                <a href='https://vite.dev/' target='_blank' rel='noreferrer'>
-                    <img src={viteLogo} alt='Vite Logo' className='logo'/>
+    // Позже надо придумать своё решение для консоли
+    const [output, setOutput] = useState([]);
+    const [input, setInput] = useState('');
+
+    const handleCommand = (e) => {
+        e.preventDefault();
+        if (input.trim() === '') return;
+
+        let result;
+        switch (input.toLowerCase()) {
+            case 'help':
+                result = 'Доступные команды: help, clear, hello';
+                break;
+            case 'clear':
+                setOutput([]);
+                setInput('');
+                return;
+            case 'hello':
+                result = 'Привет! Я StelStelox. Напиши "info", чтобы узнать обо мне больше.';
+                break;
+            case 'info':
+                result = 'Я начинающий разработчик, специализирующийся на веб-технологиях.';
+                break;
+            default:
+                result = `Неизвестная команда: ${input}`;
+        }
+
+        setOutput([...output, `> ${input}`, result]);
+        setInput('');
+    };
+
+    return (
+        <div className="homeBlock">
+            <div className="console">
+                    <div className="console-output">
+                        {output.map((line, index) => (
+                            <div key={index}>{line}</div>
+                        ))}
+                    </div>
+                    <form onSubmit={handleCommand} className="console-input">
+                        <span>&gt;</span>
+                        <input
+                            type="text"
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            placeholder="Введите команду"
+                        />
+                    </form>
+            </div>
+            <div className="link">
+                <a className="jobs">Портфолио</a>
+                <a
+                    className="socialLink"
+                    href="https://discord.com/users/1057330733263372420/"
+                    target="_blank"
+                    referrerPolicy="no-referrer"
+                >
+                    <svg viewBox="0 0 40 30" fill="none">
+                        <path 
+                            d='M25.6309 0C25.24 0.686656 24.889 1.397 24.5699 2.12313C21.5386 1.67325 18.4514 1.67325 15.4121 2.12313C15.101 1.397 14.7421 0.686656 14.3512 0C11.5033 0.481469 8.72727 1.32597 6.09482 2.51775C0.877739 10.1658 -0.534219 17.6164 0.16778 24.9645C3.22302 27.1981 6.64524 28.9029 10.2908 29.9921C11.1124 28.9029 11.8384 27.7427 12.4606 26.5351C11.28 26.101 10.1392 25.5564 9.04637 24.925C9.33354 24.7198 9.61274 24.5067 9.88396 24.3015C16.2896 27.2849 23.7084 27.2849 30.122 24.3015C30.3933 24.5225 30.6725 24.7356 30.9596 24.925C29.8668 25.5643 28.726 26.101 27.5374 26.543C28.1597 27.7506 28.8856 28.9108 29.7072 30C33.3527 28.9108 36.7749 27.2139 39.8304 24.9803C40.6598 16.4562 38.4104 9.06866 33.8871 2.52566C31.2628 1.33387 28.4867 0.489344 25.6389 0.0157813L25.6309 0ZM13.354 20.442C11.3837 20.442 9.74837 18.674 9.74837 16.4878C9.74837 14.3015 11.3199 12.5257 13.3461 12.5257C15.3723 12.5257 16.9836 14.3094 16.9517 16.4878C16.9198 18.6662 15.3643 20.442 13.354 20.442ZM26.644 20.442C24.6656 20.442 23.0463 18.674 23.0463 16.4878C23.0463 14.3015 24.6178 12.5257 26.644 12.5257C28.6702 12.5257 30.2736 14.3094 30.2417 16.4878C30.2098 18.6662 28.6542 20.442 26.644 20.442Z'
+                        />
+                    </svg>
                 </a>
-                <a href='https://react.dev/' target='_blank' rel='noreferrer'>
-                    <img src={reactLogo} alt='React Logo' className='logo react' />
+                <a
+                    className="socialLink"
+                    href="https://t.me/Stel_Stelox"
+                    target="_blank"
+                    referrerPolicy="no-referrer"
+                >
+                    <svg viewBox="0 0 38 32" fill="none">
+                        <path 
+                            d='M34.4892 0.856801C29.5676 2.8952 8.4644 11.6364 2.6336 14.0188C-1.2768 15.5448 1.0124 16.9756 1.0124 16.9756C1.0124 16.9756 4.3504 18.12 7.212 18.9784C10.0732 19.8368 11.5992 18.8832 11.5992 18.8832L25.0472 9.8224C29.816 6.5796 28.6716 9.25 27.5268 10.3948C25.0472 12.8748 20.946 16.7848 17.5124 19.9324C15.9864 21.2676 16.7492 22.412 17.4172 22.9844C19.8968 25.0828 26.6688 29.3748 27.05 29.6608C29.0648 31.0872 33.028 33.1404 33.6308 28.8024L36.0152 13.8284C36.7784 8.7736 37.5412 4.1 37.6364 2.7648C37.9228 -0.478399 34.4892 0.856801 34.4892 0.856801Z'
+                        />
+                    </svg>
+                </a>
+                <a
+                    className="socialLink"
+                    href="https://github.com/StelStelox"
+                    target="_blank"
+                    referrerPolicy="no-referrer"
+                >
+                    <svg viewBox="0 0 40 39" fill="none">
+                        <path 
+                            d='M20.041 0C8.93443 0 0 8.9375 0 19.9875C0 28.8438 5.73771 36.3188 13.6885 38.9594C14.6721 39.1625 15.041 38.5125 15.041 37.9844C15.041 37.5375 15 35.9125 15 34.2875C9.42623 35.4656 8.27869 31.8906 8.27869 31.8906C7.37705 29.575 6.06557 28.9656 6.06557 28.9656C4.2623 27.7469 6.18853 27.7469 6.18853 27.7469C8.19672 27.8688 9.2623 29.8188 9.2623 29.8188C11.0656 32.8656 13.9344 32.0125 15.082 31.4844C15.2459 30.1844 15.7787 29.2906 16.3525 28.8031C11.9262 28.3563 7.2541 26.6094 7.2541 18.9312C7.2541 16.7375 8.03279 14.95 9.30328 13.5688C9.09836 13.0813 8.40164 11.0094 9.5082 8.2875C9.5082 8.2875 11.1885 7.75937 15 10.3594C16.5984 9.9125 18.3197 9.70937 20 9.70937C21.6803 9.70937 23.4016 9.95312 25 10.3594C28.8115 7.75937 30.4918 8.2875 30.4918 8.2875C31.5984 11.05 30.9016 13.0813 30.6967 13.5688C32.0082 14.95 32.7459 16.7375 32.7459 18.9312C32.7459 26.6094 28.0738 28.3156 23.6066 28.8031C24.3443 29.4125 24.959 30.6313 24.959 32.5C24.959 35.1812 24.918 37.3344 24.918 37.9844C24.918 38.5125 25.2869 39.1625 26.2705 38.9594C34.2623 36.3188 40 28.8438 40 19.9875C40.041 8.9375 31.0656 0 20.041 0Z'
+                        />
+                    </svg>
                 </a>
             </div>
         </div>

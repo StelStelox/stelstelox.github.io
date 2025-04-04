@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
-import Layout from './layout';
-import Home from './pages/home';
-import './App.css';
+import Layout from '../shared/layout';
+import Home from '../pages/home';
+import './index.css';
 
 function App() {
 
@@ -14,6 +14,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
-export default App
+export default App;

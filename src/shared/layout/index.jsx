@@ -1,6 +1,7 @@
 import Header from '../components/header/index'
 import { Outlet } from 'react-router';
 import Footer from '../components/footer';
+import './index.css';
 
 function Layout() {
     return(
@@ -9,7 +10,9 @@ function Layout() {
             <main>
                 <Outlet/>
             </main>
-            <Footer/>
+            <div className='footerLayout'>
+                <Footer/>
+            </div>
         </>
     );
 }
