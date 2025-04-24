@@ -5,7 +5,7 @@ function Layout() {
     return (
         <>
             <Header/>
-            <main className="grid min-h-[calc(100vh-(70px+1.5rem))]"><Outlet/></main>
+            <main className="grid min-h-[100vh]"><Outlet/></main>
         </>
     );
 };
