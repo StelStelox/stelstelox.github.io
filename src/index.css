@@ -12,15 +12,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background: linear-gradient(178.76deg, #1D1D1D 2.04%, #3D3B3B 50.49%, #757575 98.94%);
-  overflow: hidden;
-}
-
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  background: linear-gradient(178.76deg, #1D1D1D 2.04%, #3D3B3B 50.49%, #757575 98.94%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
