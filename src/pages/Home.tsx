@@ -10,7 +10,7 @@ function Home(){
                 <input className={inputStyle} type="text" placeholder="Имя"/>
                 <input className={inputStyle} type="email" placeholder="Почта"/>
                 <input className={inputStyle} type="text" placeholder="Telegram" />
-                <button type="button" className="bg-blue-500 rounderd-[10px] cursor-not-allowed">Отправить</button>
+                <button type="button" className="bg-blue-950 border-1 border-blue-900 rounderd-[10px] cursor-not-allowed">Отправить</button>
             </form>
         </div>
     );
