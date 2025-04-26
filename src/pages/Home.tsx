@@ -4,7 +4,7 @@ function Home(){
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <form className="flex flex-col bg-gray-800 w-[300px] h-[350px] p-4 rounded-[18px] gap-4" action="">
+            <form className="flex flex-col bg-gray-800 w-[300px] h-[350px] p-4 rounded-[18px] gap-4 dark:bg-red-500" action="">
                 <h1 className="text-center text-[25px]">Заявка</h1>
                 <h2 className="text-center">Заполните форму для регистрации заявки</h2>
                 <input className={inputStyle} type="text" placeholder="Имя"/>
