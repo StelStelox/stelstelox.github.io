@@ -14,7 +14,7 @@ function Home(){
                 <input className={inputStyle} type="text" placeholder={t("home.bid.inputName")}/>
                 <input className={inputStyle} type="email" placeholder={t("home.bid.inputMail")}/>
                 <input className={inputStyle} type="text" placeholder="Telegram" />
-                <button type="button" className="bg-blue-500 dark:bg-blue-950 border-1 border-blue-900 rounderd-[10px] cursor-not-allowed">Отправить</button>
+                <button type="button" className="bg-blue-500 dark:bg-blue-950 border-1 border-blue-900 rounderd-[10px] cursor-not-allowed">{t("home.bid.buttonSend")}</button>
             </form>
         </div>
     );
