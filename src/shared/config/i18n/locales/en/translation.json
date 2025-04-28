@@ -1,0 +1,10 @@
+{
+    "home": {
+        "bid": {
+            "title": "Bid",
+            "info": "Fill out the form to register your application",
+            "inputName": "Name",
+            "inputMail": "Mail"
+        }
+    }
+}
