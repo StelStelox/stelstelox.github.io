@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React from "react"
 
 function ThemeSwitch() {
   const initialTheme = localStorage.theme === "dark" || 
@@ -6,9 +6,9 @@ function ThemeSwitch() {
     ? "dark" 
     : "light";
 
-  const [theme, setTheme] = useState(initialTheme);
+  const [theme, setTheme] = React.useState(initialTheme);
 
-  useEffect(() => {
+  React.useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
