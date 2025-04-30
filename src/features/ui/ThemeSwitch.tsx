@@ -8,7 +8,7 @@ function ThemeSwitch() {
 
   const [theme, setTheme] = React.useState(initialTheme);
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
