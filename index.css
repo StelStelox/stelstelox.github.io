@@ -1,16 +1,22 @@
 body {
     display: flex;
-    padding: 0;
-    margin: 0px 10px 0px 10px;
-    align-items: center;
     flex-direction: column;
-    justify-content: center;
+    padding: 0;
+    margin: 0px 15px 0px 15px;
     min-height: 100vh;
     text-align: center;
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .avatar {
@@ -24,8 +30,16 @@ body {
     text-align: justify;
 }
 
+.social-links {
+    margin-top: 30px;
+}
+
 footer {
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    height: 50px;
+    flex-shrink: 0;
 }
 
 ::selection {
