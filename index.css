@@ -5,23 +5,32 @@
     font-style: normal;
 }
 
+
 body {
     display: flex;
     flex-direction: column;
-    padding: 0;
-    margin: 0px 15px 0px 15px;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
     min-height: 100vh;
     text-align: center;
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
+    background-image: url("./background.gif");
+    background-size: cover;
+    background-position: center;
 }
 
 main {
+    width: 100%;
+    max-width: 900px;
     flex-grow: 1;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    background-color: beige;
 }
 
 .avatar {
@@ -41,10 +50,12 @@ main {
 
 footer {
     display: flex;
+    padding: 5px;
     flex-direction: column;
-    margin-top: auto;
+    margin-top: 5px;
     height: 50px;
     flex-shrink: 0;
+    background-color: beige;
 }
 
 ::selection {
@@ -54,8 +65,15 @@ footer {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: black;
         color: white;
+    }
+
+    footer {
+        background-color: black;
+    }
+
+    main {
+        background-color: black;
     }
 
     ::selection {
