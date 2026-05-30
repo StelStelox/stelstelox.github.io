@@ -54,6 +54,19 @@ main {
     margin-top: 15px;
 }
 
+.sponsor {
+    margin-top: 20px;
+}
+
+.sponsor h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.sponsor b {
+    font-size: 15px;
+}
+
 footer {
     display: flex;
     padding: 5px;
